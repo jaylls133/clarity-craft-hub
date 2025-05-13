@@ -5,6 +5,7 @@ import TextStatistics from '@/components/TextStatistics';
 import KeywordDensity from '@/components/KeywordDensity';
 import GrammarSuggestions from '@/components/GrammarSuggestions';
 import GoalTracker from '@/components/GoalTracker';
+import SeoTools from '@/components/SeoTools';
 import Layout from '@/components/Layout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -21,10 +22,11 @@ const Index = () => {
           <TextEditor text={text} setText={setText} />
           
           <Tabs defaultValue="stats">
-            <TabsList className="w-full grid grid-cols-3">
+            <TabsList className="w-full grid grid-cols-4">
               <TabsTrigger value="stats">Statistics</TabsTrigger>
               <TabsTrigger value="keywords">Keywords</TabsTrigger>
               <TabsTrigger value="grammar">Grammar</TabsTrigger>
+              <TabsTrigger value="seo">SEO</TabsTrigger>
             </TabsList>
             <TabsContent value="stats" className="mt-2 space-y-4">
               <TextStatistics text={text} />
@@ -35,6 +37,9 @@ const Index = () => {
             </TabsContent>
             <TabsContent value="grammar" className="mt-2">
               <GrammarSuggestions text={text} />
+            </TabsContent>
+            <TabsContent value="seo" className="mt-2">
+              <SeoTools text={text} />
             </TabsContent>
           </Tabs>
         </div>
@@ -53,6 +58,7 @@ const Index = () => {
           <TextStatistics text={text} />
           <KeywordDensity text={text} />
           <GrammarSuggestions text={text} />
+          <SeoTools text={text} />
           <GoalTracker text={text} />
         </div>
       </div>
